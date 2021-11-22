@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap');
+:root {
+}
+
+
+body {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: 'PT Serif', serif;
+}
+
+nav {
+	width: 100vw;
+	height: 70px;
+	display: flex;
+	align-items: center;
+}
+
+.right {
+	display: flex;
+	align-items: center;
+}
+
+.right > div {
+	margin-left: 30px;
+}
+
+.logo {
+	font-size: 3.7rem;
+	color: #3da5d9;
+}
+
+.nav-content {
+	font-size: 2rem;
+	font-weight: 500;
+	color: #2c2c2c;
+}
+
+.weather-details {
+	width: 100vw;
+	height: calc(100vh - 130px);
+	display: flex;
+}
+
+.weather-details > div {
+	width: 50vw;
+}
+
+footer {
+	width: 100vw;
+	height: 60px;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+footer > div {
+	width: 30vw;
+	display: flex;
+}
+
+.side-1, .side-2 {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.side-1 {
+	justify-content: center;
+	border-right: 1px solid #4f4f4f;
+}
+
+.location-container, .temp-container, .temp-properties {
+	width: 30vw;
+}
+
+.location-container {
+	display: flex;
+	align-items: center;
+}
+
+.icon-wrapper {
+	font-size: 1.7rem;
+	margin-right: 1.4rem;
+	color: #ee6c4d;
+}
+
+.location-name {
+	font-size: 1.4rem;
+	font-weight: 800;
+}
+
+.temp-container,
+.temp,
+.search-bar {
+	display: flex;
+	align-items: center;
+}
+
+.temp-curr {
+	font-size: 1.3rem;
+}
+
+.temp > div {
+	width: 50%;
+}
+
+.temp {
+	margin-bottom: 1.2rem;
+}
+
+.title {
+	color: #01497c;
+	font-weight: 400;
+}
+
+.search-input {
+	padding: 0px 10px 0px 10px;
+}
+
+.search-bar {
+	border: 1.2px solid #4f4f4f;
+	height: 2rem;
+	margin-bottom: 2rem;
+}
+
+.input {
+	min-width: calc(30vw - 2.1rem);
+	height: 1.6rem;
+	border: none;
+	outline: none;
+	background: transparent;
+	font-size: 1.3rem;
+	padding: 8px;
+	font-family: "Work Sans", sans-serif;
+}
+
+.search-button {
+	background-color: #d9d9d9;
+	width: 2.1rem;
+	height: 2rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.search-button:hover {
+	cursor: pointer;
+	background-color: #343a40;
+	color: #fff;
+}
+
+.error-message {
+	max-width: 30vw;
+}
+
+.error-title {
+	font-size: 1.3rem;
+	color: #d90429;
+	margin-bottom: 10px;
+}
