@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap');
 :root {
+	--fontStyle: 'PT Serif', serif;
 }
 
 
@@ -7,7 +8,7 @@ body {
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
-	font-family: 'PT Serif', serif;
+	font-family: var(--fontStyle);
 }
 
 nav {
@@ -133,7 +134,7 @@ footer > div {
 	background: transparent;
 	font-size: 1.3rem;
 	padding: 8px;
-	font-family: "Work Sans", sans-serif;
+	font-family: var(--fontStyle);
 }
 
 .search-button {
