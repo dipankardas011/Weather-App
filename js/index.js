@@ -3,20 +3,8 @@ const APP_ID = "e10945655a16f4e6aceacf3158bd8952"
 const apiUrl = `https://api.openweathermap.org/data/2.5/weather?appid=${APP_ID}&units=metric`
 const imgURL = "http://openweathermap.org/img/wn/"
 
-
-const getLocation = () => {
-	if (navigator.geolocation) {
-		navigator.geolocation.getCurrentPosition(showPosition)
-	} else {
-		console.log("Geolocation is not supported by this browser.")
-	}
-}
-
-
 const errorFillup = (data, side) => {
-	if (side == 1) {
-		var classSelection = ".side-1"
-	} else if (side == 2) {
+	if (side == 2) {
 		var classSelection = ".search-result"
 	}
 	
@@ -32,9 +20,7 @@ const errorFillup = (data, side) => {
 
 
 const fillup = (data, side) => {
-	if (side == 1) {
-		var classSelection = ".side-1"
-	} else if (side == 2) {
+	if (side == 2) {
 		var classSelection = ".search-result"
 	}
 
