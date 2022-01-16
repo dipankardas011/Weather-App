@@ -7,7 +7,7 @@ const errorFillup = (data, side) => {
 	if (side == 2) {
 		var classSelection = ".search-result"
 	}
-	
+
 	document.querySelector(`${classSelection}`).innerHTML = ""
 	document.querySelector(`${classSelection}`).insertAdjacentHTML(
 		"beforeend",
@@ -91,10 +91,10 @@ const showPosition = (position) => {
 		})
 	document.querySelector(".input.location").focus()
 }
-window.onload = getLocation
+// window.onload = getLocation
 
 const findWeatherbyCity = () => {
-	const city = document.querySelector(".input.location").value
+	const city = document.querySelector(".inputLocation").value;
 	console.log(city)
 	fetch(`${apiUrl}&q=${city}`)
 		.then((res) => res.json())

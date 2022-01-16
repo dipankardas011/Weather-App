@@ -20,15 +20,6 @@ nav {
 	display: flex;
 	align-items: center;
 }
-/* 
-.right {
-	display: flex;
-	align-items: center;
-}
-
-.right > div {
-	margin-left: 30px;
-} */
 
 .logo {
 	font-size: 3.7rem;
@@ -121,10 +112,11 @@ footer > div {
 	color: #fff;
 }
 
-.search-bar {
+.inputLocation {
+	background-color: #5e0f4d;
 	border: 1.2px solid #4f4f4f;
-	height: 2rem;
-	margin-bottom: 2rem;
+	padding: 7px 7px 7px 7px;
+	border-radius: 5px;
 }
 
 .input {
