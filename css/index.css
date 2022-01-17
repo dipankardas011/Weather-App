@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap');
 :root {
 	--fontStyle: 'PT Serif', serif;
-	--fontColor: antiquewhite;
+	--fontColor: rgb(0, 0, 0);
+	padding: 1px 1px 1px 1px;
 }
 
-
 body {
-	background-color: #160224;
+	/* background-color: #ffffff; */
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
@@ -29,13 +29,15 @@ nav {
 .nav-content {
 	font-size: 2rem;
 	font-weight: 500;
-	color: #75054a;
+	/* color: #75054a; */
 }
 
 .weather-details {
-	width: 100vw;
-	height: calc(100vh - 130px);
-	display: flex;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	column-gap: 10px;
+	column-rule: 2px solid #d90429;
+	grid-auto-rows: minmax(300px, auto);
 	color: var(--fontColor);
 }
 
@@ -56,8 +58,16 @@ footer > div {
 	display: flex;
 }
 
-.side-2 {
+.side-1 {
 	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.side-2 {
+	padding-top: 12px;
+	display: flex;
+	grid-area: sidebar;
 	flex-direction: column;
 	align-items: center;
 }
@@ -113,7 +123,7 @@ footer > div {
 }
 
 .inputLocation {
-	background-color: #5e0f4d;
+	/* background-color: #5e0f4d; */
 	border: 1.2px solid #4f4f4f;
 	padding: 7px 7px 7px 7px;
 	border-radius: 5px;
@@ -132,7 +142,7 @@ footer > div {
 }
 
 .search-button {
-	background-color: #410f36;
+	background-color: #da42b9;
 	width: 2.1rem;
 	height: 2rem;
 	display: flex;

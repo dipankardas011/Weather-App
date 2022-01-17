@@ -6,9 +6,11 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="description" content="weather looker of the particular place">
+	<meta name="keywords" content="weather">
+	<meta name="author" content="DipankarDas">
 	<title>Weather App</title>
 	<script src="https://kit.fontawesome.com/11d589870a.js" crossorigin="anonymous"></script>
-	<link rel="stylesheet" href="../css/index.css" />
+	<link rel="stylesheet" href="./css/index.css" />
 </head>
 
 <body>
@@ -17,31 +19,25 @@
 		<div class="nav-content">Weather App</div>
 	</nav>
 	<div class="weather-details">
-
-
-		<div class="side-2">
-
-			<!--Search weather with a search bar(city name)-->
+		<div class="side-1">
 			<div class="search-bar">
-
 				<div class="search-input">
 					<input type="text" class="inputLocation" placeholder="Enter your city" />
 				</div>
-
 				<div class="search-button" onclick="findWeatherbyCity()">
 					<div class="button-content">
 						<i class="fas fa-search"></i>
 					</div>
 				</div>
-
 			</div>
-
 			<div class="search-result"></div>
-
+		</div>
+		<div class="slide-2">
+			<b>Future forcast</b>
+			<br>
+			<div class="search-resultF"></div>
 		</div>
 	</div>
-
-
 
 	<footer>
 		<div class="made-by">
@@ -49,6 +45,6 @@
 		</div>
 	</footer>
 </body>
-<script src="../js/index.js"></script>
+<script src="./js/index.js" defer></script>
 
 </html>
