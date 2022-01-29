@@ -1,4 +1,6 @@
-const APP_ID = "dd4bd7d05bc3698f8c78d7399617b172"
+// const APP_ID = "dd4bd7d05bc3698f8c78d7399617b172"
+const APP_ID = `$WEATHER_API`
+
 const apiUrl = `https://api.openweathermap.org/data/2.5/weather?appid=${APP_ID}&units=metric`
 const apiUrlF = `https://api.openweathermap.org/data/2.5/onecall?appid=${APP_ID}&units=metric`
 
