@@ -1,6 +1,6 @@
-const APP_ID = "5c6d087ebee8601a3b2d43a1a795205e"
-const apiUrl = `http://api.weatherstack.com/forecast?access_key=${APP_ID}&units=m`
-
+const APP_ID = "dd4bd7d05bc3698f8c78d7399617b172"
+const apiUrl = `https://api.openweathermap.org/data/2.5/weather?appid=${APP_ID}&units=metric`
+const imgURL = "http://openweathermap.org/img/wn/"
 
 const errorFillup = (data) => {
 	
@@ -11,7 +11,7 @@ const errorFillup = (data) => {
 		"beforeend",
 		`<div class="error-message">
 			<div class="error-title">Error</div>
-			<div class="error-message">${data.error.code} : ${data.error.type}</div>
+			<div class="error-message">${data.message}</div>
 		</div>`
 	)
 
@@ -22,15 +22,14 @@ const errorFillup = (data) => {
 		"beforeend",
 		`<div class="error-message">
 			<div class="error-title">Error</div>
-			<div class="error-message">${data.error.code} : ${data.error.type}</div>
+			<div class="error-message">${data.message}</div>
 		</div>`
 	)
 }
 
-
 const fillup = (data) => {
 
-	const classSelection = ".search-result"
+	var classSelection = ".search-result"
 
 
 	document.querySelector(`${classSelection}`).innerHTML = ""
@@ -38,55 +37,57 @@ const fillup = (data) => {
 	document.querySelector(`${classSelection}`).insertAdjacentHTML(
 		"beforeend",
 		`<div class="location-container">
-			<div class="icon-wrapper">
+					<div class="icon-wrapper">
 						<i class="fas fa-thumbtack"></i>
 					</div>
 					<div class="location-details">
-						<div class="location-name">${data.location.name}</div>
-						<div class="location-coord">${data.location.lat}, ${data.location.lon}</div>
+						<div class="location-name">${data.name}</div>
+						<div class="location-coord">${data.coord.lat}, ${data.coord.lon}</div>
 					</div>
 				</div>
 				<div class="temp-container">
 					<div class="temp-logo">
-						<img src="${data.current.weather_icons[0]}" />
+						<img src="${imgURL}${data.weather[0].icon}@2x.png" />
 					</div>
 					<div class="temp-details">
-						<div class="temp-curr">${data.current.temperature} °C</div>
-						 <div class="temp-main-status">${data.current.weather_descriptions[0]} </div>
+						<div class="temp-curr">${data.main.temp}° C</div>
+						<div class="temp-main-status">${data.weather[0].main} - ${data.weather[0].description} </div>
 					</div>
 				</div>
 				<div class="temp-properties">
 					<div class="temp max">
-						<div class="title">Current Temp </div>
-						<div class="content">${data.current.temperature} °C</div>
+						<div class="title">Temp max</div>
+						<div class="content">${data.main.temp_max}°C</div>
 					</div>
-					
+					<div class="temp min">
+						<div class="title">Temp min</div>
+						<div class="content">${data.main.temp_min}°C</div>
+					</div>
 					<div class="temp feels-like">
 						<div class="title">Feels Like</div>
-						<div class="content">${data.current.feelslike} °C</div>
-					</div>
-					<div class="temp pressure">
-						<div class="title">pressure</div>
-						<div class="content">${data.current.pressure} mbar</div>
+						<div class="content">${data.main.feels_like}°C</div>
 					</div>
 					<div class="temp humidity">
 						<div class="title">Humidity</div>
-						<div class="content">${data.current.humidity} %</div>
+						<div class="content">${data.main.humidity}%</div>
 					</div>
 					<div class="temp wind-speed">
 						<div class="title">Wind Speed</div>
-						<div class="content">${data.current.wind_speed} m/s</div>
+						<div class="content">${data.wind.speed}m/s</div>
 					</div>
 					<div class="temp wind-deg">
 						<div class="title">Wind Direction</div>
-						<div class="content">${data.current.wind_dir}</div>
+						<div class="content">${data.wind.deg}deg</div>
 					</div>
 				</div>`
 	)
 }
 
-
-const fillupF = (dataF) => {
+/**
+ * forcast 
+ * @param dataF 
+ */
+const fillupF = (data) => {
 
 	const classSelection = ".search-resultF"
 
@@ -96,81 +97,80 @@ const fillupF = (dataF) => {
 	document.querySelector(`${classSelection}`).insertAdjacentHTML(
 		"beforeend",
 		`<div class="location-container">
-			<div class="icon-wrapper">
+					<div class="icon-wrapper">
 						<i class="fas fa-thumbtack"></i>
 					</div>
 					<div class="location-details">
-						<div class="location-name">${dataF.location.name}</div>
-						<div class="location-coord">${dataF.location.lat}, ${dataF.location.lon}</div>
+						<div class="location-name">${data.name}</div>
+						<div class="location-coord">${data.coord.lat}, ${data.coord.lon}</div>
 					</div>
 				</div>
-				For date :: ${Object.keys(dataF.forecast)[0]}
-					<br>
 				<div class="temp-container">
-					
+					<div class="temp-logo">
+						<img src="${imgURL}${data.weather[0].icon}@2x.png" />
+					</div>
 					<div class="temp-details">
-						<div class="title">AvgTemp</div>
-						<div class="temp-curr">${dataF.forecast[Object.keys(dataF.forecast)[0]].avgtemp} °C</div>
+						<div class="temp-curr">${data.main.temp}° C</div>
+						<div class="temp-main-status">${data.weather[0].main} - ${data.weather[0].description} </div>
 					</div>
 				</div>
 				<div class="temp-properties">
 					<div class="temp max">
-						<div class="title">Max Temp </div>
-						<div class="content">${dataF.forecast[Object.keys(dataF.forecast)[0]].maxtemp} °C</div>
+						<div class="title">Temp max</div>
+						<div class="content">${data.main.temp_max}°C</div>
 					</div>
-
 					<div class="temp min">
-						<div class="title">Min Temp </div>
-						<div class="content">${dataF.forecast[Object.keys(dataF.forecast)[0]].mintemp} °C</div>
+						<div class="title">Temp min</div>
+						<div class="content">${data.main.temp_min}°C</div>
 					</div>
-					
-					<div class="temp sunhour">
-						<div class="title">Sun hours</div>
-						<div class="content">${dataF.forecast[Object.keys(dataF.forecast)[0]].sunhour} hrs</div>
+					<div class="temp feels-like">
+						<div class="title">Feels Like</div>
+						<div class="content">${data.main.feels_like}°C</div>
 					</div>
-
-					<div class="temp totalsnow">
-						<div class="title">Visibility</div>
-						<div class="content">${dataF.forecast[Object.keys(dataF.forecast)[0]].totalsnow} m</div>
+					<div class="temp humidity">
+						<div class="title">Humidity</div>
+						<div class="content">${data.main.humidity}%</div>
 					</div>
-
-					<div class="temp uv index">
-						<div class="title">UV index</div>
-						<div class="content">${dataF.forecast[Object.keys(dataF.forecast)[0]].uv_index}</div>
+					<div class="temp wind-speed">
+						<div class="title">Wind Speed</div>
+						<div class="content">${data.wind.speed}m/s</div>
+					</div>
+					<div class="temp wind-deg">
+						<div class="title">Wind Direction</div>
+						<div class="content">${data.wind.deg}deg</div>
 					</div>
 				</div>`
 	)
 }
 
 
-const showPosition = (position) => {
+
+const MapElement = (position) => {
 	fetch(
-			`${apiUrl}&lat=${position.coords.latitude}&lon=${position.coords.longitude}`
-		)
+		`${apiUrl}&lat=${position.coords.latitude}&lon=${position.coords.longitude}`
+	)
 		.then((res) => res.json())
 		.then((data) => {
 			console.log(data)
-			if (data.success === false) {
+			if (data.cod !== 200) {
 				return
 			}
-			fillup(data)
+			fillup(data, 1)
 		})
-	document.querySelector(".inputLocation").focus()
+	document.querySelector(".input.location").focus()
 }
+
+
 
 const findWeatherbyCity = () => {
 	const city = document.querySelector(".inputLocation").value;
 	console.log(city)
-	// api call to get the current forecast
-	fetch(`${apiUrl}&query=${city}`)
+	fetch(`${apiUrl}&q=${city}`)
 		.then((res) => res.json())
 		.then((data) => {
 			console.log(data)
-			console.log("Current -> ", data.current)
-			console.log("Future -> ", data.forecast[Object.keys(data.forecast)[0]])
-			
-			if (data.success === false) {
-				errorFillup(data)
+			if (data.cod !== 200) {
+				errorFillup(data, 2)
 				return
 			}
 			fillup(data)
