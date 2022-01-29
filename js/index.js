@@ -130,6 +130,8 @@ const fillupF = (data, city) => {
 					<div class="temp feels-like">
 						<div class="title">Feels Like Day</div>
 						<div class="content">${data.daily[1].feels_like.day}°C</div>
+					</div>
+					<div class="temp feels-like">
 						<div class="title">Feels Like Night</div>
 						<div class="content">${data.daily[1].feels_like.night}°C</div>
 					</div>
@@ -159,8 +161,8 @@ const alertsW = (data) => {
 
 	document.querySelector(`${classSelection}`).insertAdjacentHTML(
 		"beforeend",
-		`<div class="location-container">
-			<div class="temp alerts">
+		`<div>
+			<div>
 				<div class="title">ALERT</div>
 				<div class="content">${data.alerts[0].description}</div>
 			</div>

@@ -98,6 +98,7 @@ footer > div {
 .search-bar {
 	display: flex;
 	align-items: center;
+	margin: 10px 10px;
 }
 
 .temp-curr {
@@ -163,4 +164,13 @@ footer > div {
 	font-size: 1.3rem;
 	color: #d90429;
 	margin-bottom: 10px;
+}
+
+.search-resultA {
+	display: block;
+	padding: 10px 10px;
+	margin: 5px 5px;
+	border-radius: 2px;
+	color: #ee6c4d;
+	font-weight: 500;
 }
