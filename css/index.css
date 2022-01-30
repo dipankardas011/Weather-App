@@ -58,7 +58,7 @@ footer > div {
 	display: flex;
 }
 
-.side-1 {
+.side-1, .slide-1 {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -166,11 +166,21 @@ footer > div {
 	margin-bottom: 10px;
 }
 
-.search-resultA {
+.search-resultF {
 	display: block;
-	padding: 10px 10px;
-	margin: 5px 5px;
+	/* padding: 10px 10px;
+	margin: 10px 5px; */
 	border-radius: 2px;
 	color: #ee6c4d;
 	font-weight: 500;
 }
+
+.search-bar{
+	justify-content: center;
+	margin-bottom: 50px !important;
+}
+
+.max, .min, .feels-like, .humidity, .wind-speed, .uvi, .wind-deg{
+	text-align: center;
+}
+
