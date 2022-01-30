@@ -54,7 +54,7 @@ footer {
 }
 
 footer > div {
-	width: 30vw;
+	/* width: 30vw; */
 	display: flex;
 }
 
@@ -74,12 +74,13 @@ footer > div {
 
 
 .location-container, .temp-container, .temp-properties {
-	width: 30vw;
+	/* width: 30vw; */
 }
 
 .location-container {
 	display: flex;
 	align-items: center;
+	justify-content: center;
 }
 
 .icon-wrapper {
@@ -99,6 +100,7 @@ footer > div {
 	display: flex;
 	align-items: center;
 	margin: 10px 10px;
+	justify-content: center;
 }
 
 .temp-curr {
@@ -184,3 +186,11 @@ footer > div {
 	text-align: center;
 }
 
+@media only screen and (max-width: 400px) {
+
+	.temp-container{
+		flex-direction: column;
+		margin-bottom: 15px;
+	}
+
+}
