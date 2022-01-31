@@ -175,7 +175,6 @@ const MapElement = (position) => {
 	)
 		.then((res) => res.json())
 		.then((data) => {
-			console.log(data)
 			if (data.cod !== 200) {
 				return
 			}
@@ -196,13 +195,11 @@ function titleCase(str) {
 const findWeatherbyCity = () => {
 	let city = document.querySelector(".inputLocation").value;
 	city = titleCase(city)
-	console.log(city)
 
 	// current
 	fetch(`${apiUrl}&q=${city}`)
 		.then((res) => res.json())
 		.then((data) => {
-			console.log(data)
 			varData = data
 			if (data.cod !== 200) {
 				errorFillup(data)
@@ -210,12 +207,10 @@ const findWeatherbyCity = () => {
 			}
 			fillup(data)
 
-			console.log(data)
 
 			fetch(`${apiUrlF}&lat=${data.coord.lat}&lon=${data.coord.lon}&exclude=current,minutely,hourly`)
 			.then((res) => res.json())
 			.then((data) => {
-				console.log(data)
 				fillupF(data, city)
 				if (data.hasOwnProperty('alerts')) {
 					alertsW(data)
