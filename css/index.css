@@ -173,7 +173,7 @@ footer > div {
 	/* padding: 10px 10px;
 	margin: 10px 5px; */
 	border-radius: 2px;
-	color: #ee6c4d;
+	/* color: #ee6c4d; */
 	font-weight: 500;
 }
 
@@ -191,6 +191,11 @@ footer > div {
 	.temp-container{
 		flex-direction: column;
 		margin-bottom: 15px;
+	}
+
+	.location-name {
+		font-size: 1rem;
+		font-weight: 800;
 	}
 
 }
