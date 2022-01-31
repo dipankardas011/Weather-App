@@ -18,28 +18,34 @@
 		<img src="https://img.icons8.com/fluency/48/000000/weather.png" />
 		<div class="nav-content">Weather App</div>
 	</nav>
+
+	<div class="search-bar">
+		<div class="search-input">
+			<input type="text" class="inputLocation" placeholder="Enter your city" />
+		</div>
+		<div class="search-button" onclick="findWeatherbyCity()">
+			<div class="button-content">
+				<i class="fas fa-search"></i>
+			</div>
+		</div>
+	</div>
+
 	<div class="weather-details">
 		<div class="side-1">
-			<div class="search-bar">
-				<div class="search-input">
-					<input type="text" class="inputLocation" placeholder="Enter your city" />
-				</div>
-				<div class="search-button" onclick="findWeatherbyCity()">
-					<div class="button-content">
-						<i class="fas fa-search"></i>
-					</div>
-				</div>
-			</div>
+			<b>Forecast for today</b>
+			<br>
 
 			<div class="search-result"></div>
 		</div>
-		<div class="slide-2">
+		<div class="slide-1">
 			<b>Forcast for tomorrow</b>
 			<br>
 			<div class="search-resultF"></div>
 		</div>
 	</div>
 	<section class="search-resultA"></section>
+
+
 	<footer>
 		<div class="made-by">
 			<div class="content">Happy ❤ coding</div>
