@@ -1,4 +1,7 @@
 # Weather app
+
+![Web capture_2-2-2022_17924_dipweatherwebapp azurewebsites net](https://user-images.githubusercontent.com/65275144/152147052-fe2dd7cb-1461-462f-99c8-bea01e87d832.jpeg)
+
 AUTHOR Dipankar Das
 
 ## Introduction
