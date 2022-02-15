@@ -19,6 +19,7 @@ This a website where you can get weather information of any city around the worl
 * stable release on the azure  [LINK](https://dipweatherwebapp.azurewebsites.net)
 * stable release on the heroku  [LINK](https://dipweatherapp.herokuapp.com/)
 * latest release on the github pages  [LINK](https://dipsonu10.github.io/Weather-App/)
+* Docker hub image name `dipugodocker/weatherapp:v2`
 
 ## branch info
 * latest -> main
