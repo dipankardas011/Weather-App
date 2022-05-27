@@ -1,4 +1,4 @@
-FROM nginx:alpine
+FROM nginx:1.22.0-alpine
 
 MAINTAINER Dipankar Das dipsonu10@hotmail.com
 
