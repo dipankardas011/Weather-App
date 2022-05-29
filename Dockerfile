@@ -1,6 +1,6 @@
 FROM nginx:alpine
 
-MAINTAINER Dipankar Das dipsonu10@hotmail.com
+LABEL MAINTAINER="Dipankar Das <dipsonu10@hotmail.com>"
 
 COPY . /usr/share/nginx/html
 
