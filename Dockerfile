@@ -6,4 +6,4 @@ COPY . /usr/share/nginx/html
 
 WORKDIR /usr/share/nginx/html
 
-EXPOSE ${PORT}
+EXPOSE 80
