@@ -1,0 +1,6 @@
+build:
+  docker:
+    web: dipweatherapp
+    release:
+       dockerfile: Dockerfile
+       target: builder
