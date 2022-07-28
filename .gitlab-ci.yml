@@ -27,8 +27,11 @@ docker-build:       # This job runs in the build stage, which runs first.
   image: docker:latest
   services:
     - docker:dind
+  before_script:
+    - docker login -u dipugodocker -p "$DOCKER_PASS"
   script:
-    - docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+    - docker build . --file Dockerfile --tag dipugodocker/weatherapp:v3
+    - docker push dipugodocker/weatherapp:v3
 
 unit-test-job:   # This job runs in the test stage.
   stage: test    # It only starts when the job in the build stage completes successfully.
