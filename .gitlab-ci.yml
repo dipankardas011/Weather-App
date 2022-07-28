@@ -21,8 +21,12 @@ stages:          # List of stages for jobs, and their order of execution
   - test
   - deploy
 
-build-job:       # This job runs in the build stage, which runs first.
+docker-build:       # This job runs in the build stage, which runs first.
   stage: build
+  # Use the official docker image.
+  image: docker:latest
+  services:
+    - docker:dind
   script:
     - docker build . --file Dockerfile --tag my-image-name:$(date +%s)
 
