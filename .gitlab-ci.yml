@@ -51,7 +51,7 @@ unit-test-job:   # This job runs in the test stage.
     - docker:dind
   script:
     - docker run --rm -d -p 8081:80 dipugodocker/weatherapp:v3
-    - wget -qO - 127.0.0.1:8081 ; echo "Nice"
+    - echo "Nice"
 
 
 lint-test-job:   # This job also runs in the test stage.
