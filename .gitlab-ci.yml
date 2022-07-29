@@ -49,7 +49,7 @@ unit-test-job:   # This job runs in the test stage.
     - docker:dind
   script:
     - docker run --rm -d -p 8080:80 dipugodocker/weatherapp:v3
-    - curl --head localhost:8080
+    - wget -qO - localhost:8080
 
 
 lint-test-job:   # This job also runs in the test stage.
@@ -105,7 +105,7 @@ terraform-build:
   stage: deploy
   extends: .terraform:build
   needs:
-    - terraform-validate
+    - terraform-fmt
 
 
 terraform-deploy:
