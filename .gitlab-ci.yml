@@ -31,7 +31,7 @@ variables:
   TF_ROOT: terraform/
 
 docker-build:
-  stage: build
+  stage: test
   # Use the official docker image.
   image: docker:latest
   services:
