@@ -98,8 +98,7 @@ terraform-fmt:
 terraform-validate:
   stage: validate
   extends: .terraform:validate
-  needs:
-    - terraform-fmt
+  
 
 
 terraform-build:
