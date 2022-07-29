@@ -33,10 +33,10 @@ resource "azurerm_linux_web_app" "example-web" {
 
   site_config {
     application_stack {
-      docker_image = "dipugodocker/weatherapp"
+      docker_image     = "dipugodocker/weatherapp"
       docker_image_tag = "v3"
     }
     use_32_bit_worker = true
-    always_on = false
+    always_on         = false
   }
 }
