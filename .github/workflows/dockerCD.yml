@@ -19,17 +19,17 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
 
-  publish:
-    needs: [build]
+  # publish:
+  #   needs: [build]
 
-    runs-on: ubuntu-latest
-    environment: deploy
-    env:
-      SUPER_SECRET: ${{ secrets.DOCKER_PASS }}
-    steps:
-    - uses: actions/checkout@v3
-    - name: Publish the Docker image
-      run: |
-        docker login -u dipugodocker -p "$SUPER_SECRET"
-        docker build . --file Dockerfile --tag dipugodocker/weatherapp:v2
-        docker push dipugodocker/weatherapp:v2
+  #   runs-on: ubuntu-latest
+  #   environment: deploy
+  #   env:
+  #     SUPER_SECRET: ${{ secrets.DOCKER_PASS }}
+  #   steps:
+  #   - uses: actions/checkout@v3
+  #   - name: Publish the Docker image
+  #     run: |
+  #       docker login -u dipugodocker -p "$SUPER_SECRET"
+  #       docker build . --file Dockerfile --tag dipugodocker/weatherapp:v2
+  #       docker push dipugodocker/weatherapp:v2
