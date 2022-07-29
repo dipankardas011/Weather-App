@@ -16,10 +16,21 @@
 # This specific template is located at:
 # https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Getting-Started.gitlab-ci.yml
 
-stages:          # List of stages for jobs, and their order of execution
-  - build
+stages:
+  - validate
   - test
+  - build
   - deploy
+
+include:
+  - template: Terraform/Base.gitlab-ci.yml  # https://gitlab.com/gitlab-org/gitlab/blob/master/lib/gitlab/ci/templates/Terraform/Base.gitlab-ci.yml
+  - template: Jobs/SAST-IaC.gitlab-ci.yml   # https://gitlab.com/gitlab-org/gitlab/blob/master/lib/gitlab/ci/templates/Jobs/SAST-IaC.gitlab-ci.yml
+
+
+variables:
+  TF_ROOT: terraform/
+
+
 
 docker-build:       # This job runs in the build stage, which runs first.
   stage: build
@@ -52,3 +63,13 @@ deploy-job:      # This job runs in the deploy stage.
   script:
     - echo "Deploying application..."
     - echo "Application successfully deployed."
+
+fmt:
+  stage: deploy
+  extends: .terraform:fmt
+  # needs: []
+
+validate:
+  stage: validate
+  extends: .terraform:validate
+  # needs: 
