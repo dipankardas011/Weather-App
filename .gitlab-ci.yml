@@ -100,21 +100,3 @@ terraform-fmt:
   extends: .terraform:fmt
   needs:
     - deploy-job
-
-
-terraform-build:
-  stage: deploy
-  extends: .terraform:build
-  needs:
-    - terraform-fmt
-
-
-terraform-deploy:
-  stage: deploy
-  extends: .terraform:deploy
-  needs:
-    - terraform-build
-  dependencies:
-    - terraform-build
-  environment:
-    name: $TF_STATE_NAME
