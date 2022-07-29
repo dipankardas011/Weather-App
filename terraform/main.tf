@@ -5,6 +5,14 @@ terraform {
       version = "=3.0.0"
     }
   }
+  backend "remote" {
+    # The name of your Terraform Cloud organization.
+    organization = "weather-org"
+    # The name of the Terraform Cloud workspace to store Terraform state files in.
+    workspaces {
+      name = "Weather-App"
+    }
+  }
 }
 
 provider "azurerm" {
