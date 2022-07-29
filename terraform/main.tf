@@ -9,29 +9,24 @@ terraform {
 
 provider "azurerm" {
   features {}
-  subscription_id = ""
+  # subscription_id = ""
 }
 
 resource "azurerm_resource_group" "example-rg" {
-  name     = "weatherappp-${random_integer.ri.result}"
+  name     = "weather-app"
   location = "eastus"
 }
 
-resource "random_integer" "ri" {
-  min = 10000
-  max = 99999
-}
-
 resource "azurerm_service_plan" "example-serviceplan" {
-  name                = "weatherapp-${random_integer.ri.result}"
+  name                = "weather-app-service-plan"
   resource_group_name = azurerm_resource_group.example-rg.name
   location            = azurerm_resource_group.example-rg.location
   os_type             = "Linux"
-  sku_name            = "B1"
+  sku_name            = "F1"
 }
 
 resource "azurerm_linux_web_app" "example-web" {
-  name                = "web-adfsd2334440009"
+  name                = "weather-app-01"
   resource_group_name = azurerm_resource_group.example-rg.name
   location            = azurerm_service_plan.example-serviceplan.location
   service_plan_id     = azurerm_service_plan.example-serviceplan.id
@@ -41,5 +36,7 @@ resource "azurerm_linux_web_app" "example-web" {
       docker_image = "dipugodocker/weatherapp"
       docker_image_tag = "v3"
     }
+    use_32_bit_worker = true
+    always_on = false
   }
 }
