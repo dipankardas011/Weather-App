@@ -11,46 +11,62 @@
 	<title>Weather App</title>
 	<script src="https://kit.fontawesome.com/11d589870a.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="./css/index.css" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"
+		defer></script>
 </head>
 
-<body>
-	<nav>
-		<img src="https://img.icons8.com/fluency/48/000000/weather.png" />
-		<div class="nav-content">Weather App</div>
+<body class="container">
+	<nav class="navbar navbar-dark bg-dark ">
+		<div class="container text-center">
+			<img src="https://img.icons8.com/fluency/48/000000/weather.png" />
+			<div class="nav-content">Weather App</div>
+		</div>
 	</nav>
+	<br>
+	<br>
+
 
 	<div class="search-bar">
 		<div class="search-input">
-			<input type="text" class="inputLocation" placeholder="Enter your city" />
+			<input class="form-control me-2 inputLocation" type="text" placeholder="Enter your city" aria-label="Search">
 		</div>
-		<div class="search-button" onclick="findWeatherbyCity()">
-			<div class="button-content">
-				<i class="fas fa-search"></i>
-			</div>
-		</div>
+		<button class="btn btn-dark" type="submit" onclick="findWeatherbyCity()">Search</button>
 	</div>
 
-	<div class="weather-details">
-		<div class="side-1">
-			<b>Today's Forecast</b>
-			<br>
 
-			<div class="search-result"></div>
-		</div>
-		<div class="slide-1">
-			<b>Tomorrow's Forecast</b>
-			<br>
-			<div class="search-resultF"></div>
+	<div class="container text-center">
+		<div class="row2">
+			<div class="col shadow-lg p-3 mb-5 bg-body rounded">
+				<div class="card-header">
+					<h4>Today's Forecast</h4>
+				</div>
+				<div class="card-body shadow-lg p-3 mb-5 bg-body rounded">
+					<div class="search-result"></div>
+				</div>
+			</div>
+			<div></div>
+
+			<div class="col  shadow-lg p-3 mb-5 bg-body rounded">
+				<div class="card-header">
+					<h4>Tomorrow's Forecast</h4>
+				</div>
+				<div class="card-body shadow-lg p-3 mb-5 bg-body rounded">
+					<div class="search-resultF"></div>
+				</div>
+			</div>
 		</div>
 	</div>
 	<section class="search-resultA"></section>
 
 
-	<footer>
-		<div class="made-by">
+	<div class="container text-center">
+		<footer class="py-3 my-4" style="background-color: rgb(41, 41, 41); color: #fff;">
 			<div class="content">Happy ❤ coding</div>
-		</div>
-	</footer>
+		</footer>
+	</div>
 </body>
 <script src="./js/index.js" defer></script>
 
