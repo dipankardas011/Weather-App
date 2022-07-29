@@ -29,6 +29,8 @@ include:
 
 variables:
   TF_ROOT: terraform/
+  TF_STATE_NAME: default
+  TF_CACHE_KEY: default
 
 docker-build:
   stage: test
@@ -48,8 +50,8 @@ unit-test-job:   # This job runs in the test stage.
   services:
     - docker:dind
   script:
-    - docker run --rm -d -p 8080:80 dipugodocker/weatherapp:v3
-    - wget -qO - localhost:8080
+    - docker run --rm -d -p 8081:80 dipugodocker/weatherapp:v3
+    - wget -qO - 127.0.0.1:8081 ; echo "Nice"
 
 
 lint-test-job:   # This job also runs in the test stage.
@@ -59,7 +61,6 @@ lint-test-job:   # This job also runs in the test stage.
   script:
     # TODO: TO be filled
     - echo "Linting code... This will take about 10 seconds."
-    - sleep 2
     - echo "No lint issues found."
 
 
@@ -79,6 +80,12 @@ docker-push:       # This job runs in the build stage, which runs first.
     - docker push dipugodocker/weatherapp:v3
 
 
+terraform-validate:
+  stage: validate
+  extends: .terraform:validate
+
+
+
 deploy-job:      # This job runs in the deploy stage.
   needs:
     - docker-push
@@ -93,12 +100,6 @@ terraform-fmt:
   extends: .terraform:fmt
   needs:
     - deploy-job
-
-
-terraform-validate:
-  stage: validate
-  extends: .terraform:validate
-  
 
 
 terraform-build:
