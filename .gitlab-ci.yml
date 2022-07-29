@@ -17,9 +17,9 @@
 # https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Getting-Started.gitlab-ci.yml
 
 stages:
-  - validate
   - test
   - build
+  - validate
   - deploy
 
 include:
@@ -30,10 +30,44 @@ include:
 variables:
   TF_ROOT: terraform/
 
-
-
-docker-build:       # This job runs in the build stage, which runs first.
+docker-build:
   stage: build
+  # Use the official docker image.
+  image: docker:latest
+  services:
+    - docker:dind
+  script:
+    - docker build . --file Dockerfile --tag dipugodocker/weatherapp:$(date +%s)
+
+
+unit-test-job:   # This job runs in the test stage.
+  stage: test    # It only starts when the job in the build stage completes successfully.
+  needs:
+  - docker-build
+  image: docker:latest
+  services:
+    - docker:dind
+  script:
+    - docker run --rm -d -p 8080:80 dipugodocker/weatherapp:v3
+    - curl --head localhost:8080
+
+
+lint-test-job:   # This job also runs in the test stage.
+  stage: test    # It can run at the same time as unit-test-job (in parallel).
+  needs:
+    - docker-push
+  script:
+    # TODO: TO be filled
+    - echo "Linting code... This will take about 10 seconds."
+    - sleep 2
+    - echo "No lint issues found."
+
+
+docker-push:       # This job runs in the build stage, which runs first.
+  stage: build
+  needs:
+    - unit-test-job
+    - lint-test-job
   # Use the official docker image.
   image: docker:latest
   services:
@@ -44,32 +78,43 @@ docker-build:       # This job runs in the build stage, which runs first.
     - docker build . --file Dockerfile --tag dipugodocker/weatherapp:v3
     - docker push dipugodocker/weatherapp:v3
 
-unit-test-job:   # This job runs in the test stage.
-  stage: test    # It only starts when the job in the build stage completes successfully.
-  script:
-    - echo "Running unit tests... This will take about 60 seconds."
-    - sleep 60
-    - echo "Code coverage is 90%"
-
-lint-test-job:   # This job also runs in the test stage.
-  stage: test    # It can run at the same time as unit-test-job (in parallel).
-  script:
-    - echo "Linting code... This will take about 10 seconds."
-    - sleep 10
-    - echo "No lint issues found."
 
 deploy-job:      # This job runs in the deploy stage.
+  needs:
+    - docker-push
   stage: deploy  # It only runs when *both* jobs in the test stage complete successfully.
   script:
     - echo "Deploying application..."
-    - echo "Application successfully deployed."
+    - echo "Application started deployment to AzUrE Web app"
 
-fmt:
+
+terraform-fmt:
   stage: deploy
   extends: .terraform:fmt
-  # needs: []
+  needs:
+    - deploy-job
 
-validate:
+
+terraform-validate:
   stage: validate
   extends: .terraform:validate
-  # needs: 
+  needs:
+    - terraform-fmt
+
+
+terraform-build:
+  stage: deploy
+  extends: .terraform:build
+  needs:
+    - terraform-validate
+
+
+terraform-deploy:
+  stage: deploy
+  extends: .terraform:deploy
+  needs:
+    - terraform-build
+  dependencies:
+    - terraform-build
+  environment:
+    name: $TF_STATE_NAME
