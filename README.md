@@ -1,5 +1,7 @@
 # Weather app
 
+[![Build status](https://dev.azure.com/dipankardas015/Weather-app/_apis/build/status/Weather-app-Docker%20container-CI)](https://dev.azure.com/dipankardas015/Weather-app/_build/latest?definitionId=6)
+
 > 🛈 This Repo is a mirror please visit https://gitlab.com/dipankardas011/Weather-App
 
 Link for azure Prod env -> https://weather-app-01.azurewebsites.net/
