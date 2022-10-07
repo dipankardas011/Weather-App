@@ -2,14 +2,17 @@
 
 [![Build status](https://dev.azure.com/dipankardas015/Weather-app/_apis/build/status/Weather-app-Docker%20container-CI)](https://dev.azure.com/dipankardas015/Weather-app/_build/latest?definitionId=6)
 
-> 🛈 This Repo is a mirror please visit https://gitlab.com/dipankardas011/Weather-App
+## Introduction
+A web-based application which gives Today's and Tomorrow's weather forecast of a given city
+
+> **Note**
+> This Repo is a mirror please visit https://gitlab.com/dipankardas011/Weather-App
 
 Link for azure Prod env -> https://weather-app-01.azurewebsites.net/
 
-![Web capture_2-2-2022_17924_dipweatherwebapp azurewebsites net](./CoverPage.jpeg)
+Link for azure Webapp created by Azure devops -> https://weather-app-az-pipe-sdc34f3cwe3.azurewebsites.net/
 
-## Introduction
-This a website where you can get weather information of any city around the world
+![Web capture_2-2-2022_17924_dipweatherwebapp azurewebsites net](./CoverPage.jpeg)
 
 ## Learning
 - Javascript
