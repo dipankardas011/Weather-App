@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: weatherapp
-        image: dipugodocker/weatherapp:v2
+        image: dipugodocker/weatherapp:v3
         resources:
           limits:
             memory: "128Mi"
