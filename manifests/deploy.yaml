@@ -2,6 +2,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: weatherapp
+  labels:
+    app: weatherapp
+   namespace: weather
 spec:
   selector:
     matchLabels:
