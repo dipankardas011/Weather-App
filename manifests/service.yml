@@ -4,6 +4,7 @@ metadata:
     name: "weather-svc"
     labels:
         app: "weather-svc"
+    namespace: weather
 spec:
     type: LoadBalancer
 #     externalIPs:
