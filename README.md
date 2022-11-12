@@ -21,18 +21,21 @@ Link for azure Webapp created by Azure devops -> https://weather-app-az-pipe-sdc
 - API calls and how to manage them
 - Azure container & app service
 - Azure DevOps
+- Kubernetes
+- Docker
 
 ## Info
 * Used gitlab for its CI/CD
+* Used Kubernetes prod cluster in Okteto
 * Used github for Azure DevOps pipeline
 
 ## hosted on
 * stable release on the azure  [LINK](https://dipweatherwebapp.azurewebsites.net)
-* latest release on the github pages  [LINK](https://dipankardas011.github.io/Weather-App/)
-* Docker hub image name `dipugodocker/weatherapp:v2`
+* Docker hub image name `dipugodocker/weatherapp:v3`
+* K8s environment (okteto) [LINK](https://weather-app-dipankardas011.cloud.okteto.net/)
+
 
 ## branch info
 * latest -> main
 * azure & docker specific version -> v${number}
-* heroku specific version -> heroku-v${number}
 
