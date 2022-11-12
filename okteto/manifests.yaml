@@ -1,0 +1,49 @@
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: weatherapp
+  labels:
+    app: weatherapp
+spec:
+  selector:
+    matchLabels:
+      app: weatherapp
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: weatherapp
+    spec:
+      containers:
+      - name: weatherapp
+        image: dipugodocker/weatherapp:v3
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
+          name: weatherendpoint
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: "weather-app"
+  labels:
+    app: "weather-app"
+  annotations:
+    dev.okteto.com/auto-ingress: "true"
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+    targetPort: 80
+    protocol: TCP
+    name: http
+  selector:
+    app: "weatherapp"
+
+...

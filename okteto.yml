@@ -1,0 +1,6 @@
+name: weather-prod
+
+deploy:
+  commands:
+  - name: Deploy
+    command: kubectl apply -f okteto
