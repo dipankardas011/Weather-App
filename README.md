@@ -4,18 +4,9 @@
 
 ## Introduction
 A web-based application which gives Today's and Tomorrow's weather forecast of a given city
-
 > **Note**
 > This Repo is a mirror please visit https://gitlab.com/dipankardas011/Weather-App
-
-Link for azure Prod env -> https://weather-app-01.azurewebsites.net/
-
-Link for azure Webapp created by Azure devops -> https://weather-app-az-pipe-sdc34f3cwe3.azurewebsites.net/
-
-![Web capture_2-2-2022_17924_dipweatherwebapp azurewebsites net](./CoverPage.jpeg)
-
-## Learning
-- Javascript
+Link for azure Prod env -> https://weather-app-01.azurewebsites.net/ Link for azure Webapp created by Azure devops -> https://weather-app-az-pipe-sdc34f3cwe3.azurewebsites.net/ ![Web capture_2-2-2022_17924_dipweatherwebapp azurewebsites net](./CoverPage.jpeg) ## Learning Javascript
 - CSS
 - HTML
 - API calls and how to manage them
