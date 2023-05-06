@@ -27,6 +27,5 @@ jobs:
           MERGE_REQUIRED_APPROVALS: "0" # change it
 #           PULL_REQUEST: "" # base branch
       - name: feedback
-        if: steps.automerge.outputs.mergeResult == "merged"
         run: |
           echo "Pull request ${{ steps.automerge.outputs.pullRequestNumber }} merged!"
